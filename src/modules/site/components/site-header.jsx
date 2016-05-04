@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { MARKETS, POSITIONS, TRANSACTIONS } from '../../site/constants/pages';
+import { ACCOUNT, MARKETS, POSITIONS, TRANSACTIONS } from '../../site/constants/pages';
 import { AUTH_TYPES } from '../../auth/constants/auth-types';
 
 import Link from '../../link/components/link';
@@ -75,9 +75,17 @@ module.exports = React.createClass({
 							</Link>
 						}
 
-						<Link className={ classnames('site-nav-link', AUTH_TYPES[p.activePage], { 'active': !!AUTH_TYPES[p.activePage] }) } { ...p.authLink }>
-							{ p.loginAccount && p.loginAccount.id ? 'Sign Out' : 'Sign Up / Login' }
-						</Link>
+						{ p.loginAccount && p.loginAccount.id &&
+							<Link className={ classnames('site-nav-link', { 'active': p.activePage === ACCOUNT }) } { ...p.accountLink }>
+								Account
+							</Link>
+						}
+
+						{ (p.loginAccount == null || p.loginAccount.id == null) &&
+							<Link className={ classnames('site-nav-link', AUTH_TYPES[p.activePage], { 'active': !!AUTH_TYPES[p.activePage] }) } { ...p.authLink }>
+								Sign Up / Login
+							</Link>
+						}
 					</nav>
 				</div>
 			</header>
