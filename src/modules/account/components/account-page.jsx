@@ -15,23 +15,23 @@ module.exports = React.createClass({
             <main className="page account">
                 <SiteHeader { ...p.siteHeader } />
 
-                <header className="page-header">
-                    <div className="l-container">
-                        <span className="big-line">Augur is a completely decentralized system</span> including user accounts.
-                        Your credentials never leave the browser, and you are responsible for keeping them safe.
-                        <br />
-                        <b><i className="negative">It is impossible to recover your account if your credentials get lost!</i></b>
-                    </div>
-                </header>
                 <div className="page-content">
                     <div className="l-container">
                         <div>
-                            <h3>Export account</h3>
+                            <h3>Backup account</h3>
                             <p>
-                                Following button will export your account to JSON file, save it.
+                                Since Augur is a completely decentralized system (including account credentials) your
+                                credentials are stored in your browser only and we <b>strongly</b> suggest you to save
+                                them at secure place (such as external disk).
+                            </p>
+                            <p>
+                                It is impossible to recover your account if your credentials get lost!
+                            </p>
+                            <p>
+                                Following button will start downloading your credentials
                             </p>
                             <button className="button primary" onClick={ p.loginAccount.exportAccount }>
-                                Export your account
+                                Download your credentials
                             </button>
                         </div>
 

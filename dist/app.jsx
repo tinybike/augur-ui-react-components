@@ -24750,30 +24750,6 @@ module.exports = _react2.default.createClass({
             { className: 'page account' },
             _react2.default.createElement(_siteHeader2.default, p.siteHeader),
             _react2.default.createElement(
-                'header',
-                { className: 'page-header' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'l-container' },
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'big-line' },
-                        'Augur is a completely decentralized system'
-                    ),
-                    ' including user accounts. Your credentials never leave the browser, and you are responsible for keeping them safe.',
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(
-                        'b',
-                        null,
-                        _react2.default.createElement(
-                            'i',
-                            { className: 'negative' },
-                            'It is impossible to recover your account if your credentials get lost!'
-                        )
-                    )
-                )
-            ),
-            _react2.default.createElement(
                 'div',
                 { className: 'page-content' },
                 _react2.default.createElement(
@@ -24785,17 +24761,33 @@ module.exports = _react2.default.createClass({
                         _react2.default.createElement(
                             'h3',
                             null,
-                            'Export account'
+                            'Backup account'
                         ),
                         _react2.default.createElement(
                             'p',
                             null,
-                            'Following button will export your account to JSON file, save it.'
+                            'Since Augur is a completely decentralized system (including account credentials) your credentials are stored in your browser only and we ',
+                            _react2.default.createElement(
+                                'b',
+                                null,
+                                'strongly'
+                            ),
+                            ' suggest you to save them at secure place (such as external disk).'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'It is impossible to recover your account if your credentials get lost!'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Following button will start downloading your credentials'
                         ),
                         _react2.default.createElement(
                             'button',
                             { className: 'button primary', onClick: p.loginAccount.exportAccount },
-                            'Export your account'
+                            'Download your credentials'
                         )
                     ),
                     _react2.default.createElement(
