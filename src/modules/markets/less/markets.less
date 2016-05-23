@@ -1,96 +1,48 @@
+@markets-header-height: 3.5em;
+
 .markets {
 	.page-content {
 		color: @color-dark-hover;
 
-		.search-sort-bar {
-			display: flex;
+		.markets-content {
+			display: flex; flex-wrap: wrap;
 			width: 100%;
-			padding: 0 2.3rem 1.5vmin 2.7rem;
-			background: @color-dark-hover;
-
-			.search-bar {
-				flex: 2;
-				display: inline-block;
-				width: 70%;
-				margin: 0 .5% 0 0;
-				font-size: 3vmin;
-				vertical-align: top;
-
-			   &:before {
-					display: block; position: absolute; z-index: 1;
-					content: '\f002';
-					top: 0.65em; left: 0.7em;
-					font-size: inherit;
-					font-family: 'FontAwesome';
-					color: @color-border-darker;
-				}
-
-				.box {
-					padding: 0.5em 2em;
-				}
-			}
-
-			.sort-container {
-				display: inline-block;
-				padding: 0.5em 0 0 0;
-				color: @color-light-normal;
-				font-size: 2vmin;
-
-				.title {
-					display: block; position: absolute;
-					top: 0; left: 1.3rem;
-					font-size: 0.6em;
-					text-transform: uppercase;
-				}
-
-				.sort {
-					width: 23vmin;
-					margin-top: 0.1em;
-					font-size: 1.55em;
-					white-space: nowrap;
-				}
-
-				.sort-direction-button {
-					display: inline-block;
-					padding: 0;
-					color: @color-light-normal;
-					background: transparent;
-					border: 0;
-					font-family: FontAwesome;
-					font-size: 1.1em;
-				}
-			}
+			.l-container();
 		}
 
 		.markets-header-bar {
 			display: flex;
+			width: 100%;
 			padding: 1vmin 0 0 0;
 
 			.button.make {
-				width: @filters-width; height: 6.5rem;
+				width: @filters-width;
+				height: @markets-header-height;
+				line-height: @markets-header-height;
 				padding: 0;
-				line-height: 6.5rem;
 				text-align: center;
 				border-radius: 1px;
-				font-size: 1.6em;
+				font-size: 1.6rem;
 			}
 
 			.markets-header {
 				display: flex;
 				flex: 2;
-				width: 100%; height: 6.5rem;
+				width: 100%;
 				margin-left: 1vmin;
 				padding: 0 0 0 5vmin;
-				line-height: 6rem;
 				color: @color-dark-hover;
 				background: white;
+				font-size: 1.6rem;
 				font-weight: 400;
-				font-size: 1.5rem;
 				text-transform: uppercase;
 
 				.markets-header-item {
 					display: inline-block;
+					height: @markets-header-height;
+					line-height: @markets-header-height * 0.95;
 					margin-right: 3vw;
+					white-space: nowrap;
 					cursor: pointer;
 					opacity: 0.5;
 
@@ -98,22 +50,24 @@
 						vertical-align: middle;
 					}
 
+					&:hover, &:active, &:focus {
+						opacity: 0.8;
+					}
+
 					&.active {
 						opacity: 1;
 					}
 
 					&.favorites {
-						white-space: nowrap;
-
 						.name {
 							&:before {
 								display: inline-block; position: relative;
-								top: 0.12em;
+								top: 0.3vmin;
 								margin-right: 0.5rem;
 								content: '';
 								color: #FFDA00;
 								font-family: FontAwesome;
-								font-size: 1.6em;
+								font-size: 1.2em;
 								transform: rotate(58deg);
 								opacity: 0.45;
 							}
@@ -128,7 +82,7 @@
 						.name {
 							&:before {
 								display: inline-block; position: relative;
-								top: 0.12em;
+								top: 0.1em;
 								margin-right: 0.5rem;
 								content: '\f12a';
 								color: fade(@color-danger-active, 70%);
@@ -150,32 +104,8 @@
 			}
 		}
 
-		.filters {
-			position: absolute; z-index: 2;
-			width: @filters-width;
-			margin: 1vmin 0 2vmin 0;
-			padding: 0 0 3rem 0;
-			color: @color-dark-normal;
-			background: white;
-			border-radius: 1px;
-			font-size: 1.4rem;
-
-			.title {
-				display: block;
-				margin: 3rem 1rem 1rem 4rem;
-				font-size: 1.5rem;
-				font-weight: 700;
-			}
-
-			.filter {
-				display: block;
-				margin: 0.5rem 1rem 0.5rem 4rem;
-			}
-		}
-
 		.markets-list {
-			width: 100%; min-height: 40rem;
-			padding-left: @filters-width;
+			flex: 2;
 			line-height: 2.5em;
 			overflow: hidden;
 		}
@@ -185,23 +115,39 @@
 @media only screen and (max-width: @media-small-width) {
 	.markets {
 		.page-content {
-			.filters {
-				position: relative;
-				width: auto;
-				margin: 1vmin 0 0 0;
-				padding: 0 1em 1em 1em;
-
-				.filters-group {
-				    display: inline-block;
-				    min-width: 31%;
-					.title {
-						margin: 1em;
+			.markets-header-bar {
+				.button.make {
+					width: auto;
+					padding: 0 4vmin;
+					font-size: 1.6rem;
+				}
+				.markets-header {
+					.markets-header-item {
+						font-size: 1.6rem;
 					}
 				}
 			}
 
 			.markets-list {
-				padding-left: 0px;
+				flex: unset;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: @media-mobile-width) {
+	.markets {
+		.page-content {
+			.markets-header-bar {
+				.button.make {
+					font-size: 3.5vmin;
+				}
+				.markets-header {
+					.markets-header-item {
+						font-size: 3.5vmin;
+					}
+				}
 			}
 		}
 	}

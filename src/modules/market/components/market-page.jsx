@@ -13,6 +13,7 @@ module.exports = React.createClass({
         className: React.PropTypes.string,
         siteHeader: React.PropTypes.object,
 		market: React.PropTypes.object,
+		priceTimeSeries: React.PropTypes.array,
 		numPendingReports: React.PropTypes.number
     },
 
