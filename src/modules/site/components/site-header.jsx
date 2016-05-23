@@ -74,19 +74,18 @@ module.exports = React.createClass({
 						</Link>
 					}
 
-						{ p.loginAccount && p.loginAccount.id &&
-							<Link className={ classnames('site-nav-link', { 'active': p.activePage === ACCOUNT }) } { ...p.accountLink }>
-								Account
-							</Link>
-						}
+					{ p.loginAccount && p.loginAccount.id &&
+						<Link className={ classnames('site-nav-link', { 'active': p.activePage === ACCOUNT }) } { ...p.accountLink }>
+							Account
+						</Link>
+					}
 
-						{ (p.loginAccount == null || p.loginAccount.id == null) &&
-							<Link className={ classnames('site-nav-link', AUTH_TYPES[p.activePage], { 'active': !!AUTH_TYPES[p.activePage] }) } { ...p.authLink }>
-								Sign Up / Login
-							</Link>
-						}
-					</nav>
-				</div>
+					{ (p.loginAccount == null || p.loginAccount.id == null) &&
+						<Link className={ classnames('site-nav-link', AUTH_TYPES[p.activePage], { 'active': !!AUTH_TYPES[p.activePage] }) } { ...p.authLink }>
+							Sign Up / Login
+						</Link>
+					}
+				</nav>
 			</header>
 		);
 	}
