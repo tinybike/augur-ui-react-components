@@ -7,6 +7,7 @@ import TradePanel from '../../../modules/trade/components/trade-panel';
 import ReportPanel from '../../reports/components/report-panel';
 import MarketPositions from '../../market/components/market-positions';
 import Chart from '../../market/components/chart';
+import Comments from '../../../modules/market/components/comments';
 
 export default class MarketPage extends Component {
 	static propTypes = {
@@ -17,6 +18,7 @@ export default class MarketPage extends Component {
 		priceTimeSeries: PropTypes.array,
 		numPendingReports: PropTypes.number
 	};
+
 	constructor(props) {
 		super(props);
 		this.shouldComponentUpdate = shouldComponentUpdatePure;
@@ -25,6 +27,8 @@ export default class MarketPage extends Component {
 	render() {
 		const p = this.props;
 		const	nodes = [];
+
+		console.log('market -- ', p.market);
 
 		// no market
 		if (!p.market || !p.market.id) {
@@ -81,6 +85,11 @@ export default class MarketPage extends Component {
 						key="chart"
 						series={p.market.priceTimeSeries}
 					/>
+				);
+
+				// comments
+				nodes.push(
+					<Comments key="comments" />
 				);
 			}
 		}
