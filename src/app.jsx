@@ -99,7 +99,6 @@ export default function (appElement, selectors) {
 				filters={p.filters}
 				positionsSummary={p.positionsSummary}
 				positionsMarkets={p.positionsMarkets}
-				filteredMarkets={p.filteredMarkets}
 			/>
 		);
 		break;
