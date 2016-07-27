@@ -8,6 +8,7 @@
     "node": ">= 4.2.x"
   },
   "main": "./build/components.jsx",
+  "files": ["build", "lib"],
   "repository": {
     "type": "git",
     "url": "https://github.com/thinkloop/augur-ui-react-components.git"
@@ -23,10 +24,11 @@
     "publish_to_npm": "clear; echo \"* * * *  PUBLISH  * * * *\"; NODE_ENV=production npm run -s build:all && git add --all && git commit -m 'build for publish' && npm version patch && git push && git push --tags && npm publish",
     "deploy:demo": "firebase deploy -f augur-ui",
     "______": "",
-    "build:all": "npm run -s clean:build && (npm run -s build:css & npm run -s build:assets & npm run -s build:js) && npm run -s build:finish",
+    "build:all": "npm run -s clean:build && npm run -s clean:lib && (npm run -s build:assertions & npm run -s build:css & npm run -s build:assets & npm run -s build:js) && npm run -s build:finish",
     "build:assets": "cp -R ./src/assets/. ./build/assets && echo ---------ASSETS---------`date +%r`",
     "build:css": "lessc $npm_package_config_less_entry_file | cleancss --s0 > ./build/styles.css | sed -e 's~less~css~' && echo ---------CSS------------`date +%r`",
     "build:js": "npm run -s build:js:browserify | npm run -s partial:uglify > ./build/components.jsx && echo ---------JS-------------`date +%r`",
+    "build:assertions": "cp -R ./test/assertions/. ./lib/assertions && echo ---------ASSERTIONS---------`date +%r`",
     "build:js:browserify": "browserify $npm_package_config_js_entry_file_build --extension=.js --extension=.jsx --detectGlobals false --standalone augur-react-components -t [ babelify --presets [ es2015 stage-0 react ] ] -t [envify purge] | derequire",
     "build:finish": "echo ---------FINISHED-------`date +%r`",
     "_______": "On change create build",
@@ -39,8 +41,9 @@
     "watch:html": "onchange './src/index.html' -i -- npm run -s watch:html:do",
     "watch:html:do": "cat ./src/index.html > ./demo/index.html && echo ---------HTML-----------`date +%r`",
     "_________": "",
-    "clean:demo": "rimraf ./demo/* && mkdir -p ./demo && echo ---------CLEAN----------",
-    "clean:build": "rimraf ./build/* && mkdir -p ./build && echo ---------CLEAN----------`date +%r`",
+    "clean:demo": "rimraf ./demo/* && mkdir -p ./demo && echo ---------CLEAN:demo----------",
+    "clean:build": "rimraf ./build/* && mkdir -p ./build && echo ---------CLEAN:build----------`date +%r`",
+    "clean:lib": "rimraf ./lib/* && mkdir -p ./lib && echo ---------CLEAN:lib----------`date +%r`",
     "__________": "",
     "partial:uglify": "[ $NODE_ENV = production ] && uglifyjs --compress drop_console,unused=true --mangle --screw-ie8 || cat"
   },
