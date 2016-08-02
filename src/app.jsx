@@ -91,7 +91,7 @@ export default function (appElement, selectors) {
 		node = (
 			<PortfolioPage
 				siteHeader={p.siteHeader}
-				{ ...p.portfolio }
+				{...p.portfolio}
 			/>
 		);
 		break;
