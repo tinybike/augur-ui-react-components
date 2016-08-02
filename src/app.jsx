@@ -90,10 +90,8 @@ export default function (appElement, selectors) {
 	case MY_REPORTS:
 		node = (
 			<PortfolioPage
-				portfolio={p.portfolio}
 				siteHeader={p.siteHeader}
-				positionsSummary={p.positionsSummary}
-				positionsMarkets={p.positionsMarkets}
+				{ ...p.portfolio }
 			/>
 		);
 		break;
