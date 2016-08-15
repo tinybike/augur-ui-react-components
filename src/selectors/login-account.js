@@ -1,7 +1,6 @@
 import { makeNumber } from '../utils/make-number';
 
 const loginAccount = {
-	address: '0x45a153fdd97836c2b349a5f53970dc44b0ef1efa',
 	id: '0x45a153fdd97836c2b349a5f53970dc44b0ef1efa',
 	prettyAddress: '0x45...1efa',
 	localNode: false,
@@ -19,7 +18,7 @@ const date = new Date()
 	.split(':')
 	.join('-');
 loginAccount.downloadAccountDataString = `data:,${encodeURIComponent(JSON.stringify(loginAccount))}`;
-loginAccount.downloadAccountFileName = `UTC--${date}--${loginAccount.address}`;
+loginAccount.downloadAccountFileName = `UTC--${date}--${loginAccount.id}`;
 
 loginAccount.signIn = (name = loginAccount.name) => {
 	require('../selectors').update({ loginAccount: {
