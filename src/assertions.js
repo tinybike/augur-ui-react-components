@@ -63,9 +63,9 @@ export default {
 	portfolioTotals,
 	loginAccountPositions,
 	loginAccountMarkets,
+	loginAccountReports,
 	myMarkets,
 	myMarketsSummary,
 	myReports,
-	myReportsSummary,
-	loginAccountReports
+	myReportsSummary
 };
