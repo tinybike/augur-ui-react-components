@@ -1,4 +1,5 @@
 import { assert } from 'chai';
+import assertFormattedNumber from './common/formatted-number';
 
 export default function (myMarketsSummary){
 	describe(`augur-ui-react-components myMarketsSummary's shape`, () => {
@@ -16,12 +17,12 @@ export function assertMyMarketsSummary(summary){
 
 		it('numMarkets', () => {
 			assert.isDefined(summary.numMarkets);
-			assert.isNumber(summary.numMarkets);
+			assertFormattedNumber(summary.numMarkets);
 		});
 
 		it('totalValue', () => {
 			assert.isDefined(summary.totalValue);
-			assert.isNumber(summary.totalValue);
+			assertFormattedNumber(summary.totalValue);
 		});
 	});
 };
