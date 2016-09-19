@@ -17,11 +17,11 @@ const PortfolioPositions = (p) => (
 							{...market.myPositionsSummary}
 						/>
 						{!!market.myPositionOutcomes && !!market.myPositionOutcomes.length &&
-						<Positions
-							className="page-content positions-content"
-							type={market.type}
-							outcomes={market.myPositionOutcomes}
-						/>
+							<Positions
+								className="page-content positions-content"
+								type={market.type}
+								outcomes={market.myPositionOutcomes}
+							/>
 						}
 					</div>
 				</Link>
