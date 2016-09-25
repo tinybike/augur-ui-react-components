@@ -32,7 +32,7 @@ const SiteHeader = (p) => (
 
 			{(!!p.loginAccount && !!p.loginAccount.id) &&
 				<Link
-					className={classnames('site-nav-link', BALANCES, { active: p.activePage === BALANCES })}
+					className={classnames('nav-text', BALANCES, { active: p.activePage === BALANCES })}
 					{...p.balancesLink}
 				>
 					<ValueDenomination
