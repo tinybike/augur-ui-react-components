@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '../../../modules/link/components/link';
+import Link from '../../link/components/link';
 import classnames from 'classnames';
 import ValueDenomination from '../../../modules/common/components/value-denomination';
 

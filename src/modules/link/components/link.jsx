@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 export default class Link extends Component {
 	static propTypes = {
 		className: PropTypes.string,
-		href: PropTypes.string,
+		href: PropTypes.string.isRequired,
 		target: PropTypes.string,
 		onClick: PropTypes.func,
 		disabled: PropTypes.bool
@@ -20,7 +20,7 @@ export default class Link extends Component {
 			return;
 		}
 		// if not a left click or is a special click, let the browser handle it
-		if (!e.button === 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) {
+		if (e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) {
 			return;
 		}
 		e.preventDefault();
