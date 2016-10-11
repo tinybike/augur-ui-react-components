@@ -13,6 +13,8 @@ const Shared = {
 const loginParts = {
 	submitButtonClass: 'login-button',
 	submitButtonText: 'Login',
+	airbitzLinkText: 'Login With Airbitz',
+	airbitzLink: { onClick: () => { console.log('Airbitz Login'); } },
 	title: 'Login',
 	type: 'login',
 	isVisibleName: false,
@@ -28,6 +30,8 @@ const signUp = {
 	type: 'register',
 	submitButtonClass: 'register-button',
 	submitButtonText: 'Generate Account',
+	airbitzLinkText: 'Register With Airbitz',
+	airbitzLink: { onClick: () => { console.log('Airbitz Register'); } },
 	title: 'Sign Up',
 	isVisibleName: true,
 	isVisibleID: false,
@@ -67,6 +71,8 @@ const importAccount = {
 	bottomLinkText: 'Sign Up',
 	submitButtonClass: 'login-button',
 	submitButtonText: 'Import Account',
+	airbitzLinkText: 'Register With Airbitz',
+	airbitzLink: { onClick: () => { console.log('Airbitz Register'); } },
 	bottomLink: {
 		href: '/register',
 		onClick: () => {
