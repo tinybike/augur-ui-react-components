@@ -71,6 +71,8 @@ const Outcome = (p) => {
 				selectedShareDenomination={p.selectedShareDenomination}
 				updateSelectedTradeSide={p.updateSelectedTradeSide}
 				outcomeTradeNavItems={p.outcomeTradeNavItems}
+				minLimitPrice={p.minLimitPrice}
+				maxLimitPrice={p.maxLimitPrice}
 			/>
 		</article>
 	);

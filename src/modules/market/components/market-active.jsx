@@ -80,6 +80,8 @@ export default class MarketActive extends Component {
 		const tradeSummary = getValue(p, 'market.tradeSummary');
 		const submitTrade = getValue(p, 'market.onSubmitPlaceTrade');
 		const marketType = getValue(p, 'market.type');
+		const minValue = getValue(p, 'market.minValue');
+		const maxValue = getValue(p, 'market.maxValue');
 
 		const selectedShareDenomination = getValue(p, `scalarShareDenomination.markets.${marketID}`);
 		const shareDenominations = getValue(p, 'scalarShareDenomination.denominations');
@@ -102,6 +104,8 @@ export default class MarketActive extends Component {
 						selectedTradeSide={s.selectedTradeSide}
 						updateSelectedTradeSide={this.updateSelectedTradeSide}
 						outcomeTradeNavItems={p.outcomeTradeNavItems}
+						minLimitPrice={minValue}
+						maxLimitPrice={maxValue}
 					/>
 					<OrderBook
 						marketType={marketType}
@@ -127,6 +131,8 @@ export default class MarketActive extends Component {
 							selectedShareDenomination={selectedShareDenomination}
 							updateSelectedTradeSide={this.updateSelectedTradeSide}
 							outcomeTradeNavItems={p.outcomeTradeNavItems}
+							minLimitPrice={minValue}
+							maxLimitPrice={maxValue}
 						/>
 					</div>
 				}

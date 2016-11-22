@@ -35,6 +35,8 @@ const Outcomes = p => (
 					selectedTradeSide={p.selectedTradeSide}
 					updateSelectedTradeSide={p.updateSelectedTradeSide}
 					outcomeTradeNavItems={p.outcomeTradeNavItems}
+					minLimitPrice={p.minLimitPrice}
+					maxLimitPrice={p.maxLimitPrice}
 				/>
 			))}
 		</div>
