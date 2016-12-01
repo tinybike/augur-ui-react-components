@@ -34667,390 +34667,22 @@ var LoginMessagePage = function LoginMessagePage(p) {
 				_react2.default.createElement(
 					'li',
 					null,
-					'Added human-readable "label" and "description" fields to static API data.  Added "label maker" to augur-core API maker script.'
+					'Added more thorough unit tests for the trading UI.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'The following things are now included in the auto-generated transaction display: formatted label, description, timestamp, and gas fees.'
+					'Uploaded Augur contracts to the new Ethereum public test network ("Ropsten").  Also moved the Augur faucet and public geth node (eth3.augur.net) to Ropsten.  app.augur.net and augur-dev.firebaseapp.com are now configured to use the new Ropsten contracts.  local.augur.net will also use Ropsten if you are not running a local Ethereum node.  For users that prefer to remain on our private chain (network 9000), we are planning to maintain private.augur.net for the remainder of the beta test.  Users of private.augur.net should be aware that the network 9000 blockchain is reset on a semi-regular basis, often without any public announcement/warning, and when this happens, all your private chain Ether, Reputation, and trading shares are also reset.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'Added a "no-relay" list to the UI, which has the names of methods for which the transaction relay should not be triggered.  This will allow the old manually-constructed "transactions" to peacefully coexist with relay-generated transactions in the transaction display.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 29, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Attached the initial transact payload and full Ethereum network response data objects to the txRelay callback argument in ethrpc.'
+					'Fixed market description display and links back to the trade page on the transactions page.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'Percentage reporting on correct outcome is now only displayed for binary markets, since we do not presently have access to this information for categorical and scalar markets.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed an array indexing error in getMarketInfo function on the compositeGetters contract.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Reports are now revealed in parallel (up to 5 at a time).'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Registered sell error codes for the shortAsk method.  This fixes the bug where a short ask order would correctly fail (due to orders being "crossed"), but the transactions display would incorrectly show the short ask as successful.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed deprecated callbacks from augur.js.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed augur.js sendEther method to correctly include an onFailed callback.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 28, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'The checkPeriod function now only looks up chain data on initial loading and when the reporting cycle phase changes.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed code related to the market data refresh timer, which is no longer used.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added a generic hook for transaction callbacks to ethrpc.  The UI (or augur.js) can now register a transaction relay function that is automatically called any time any transaction is sent, succeeds, or fails.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 27, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added answer-in-description reporting test markets for first 4 cycles on root branch.  (Example description: "Binary Reporting Test Market (Cycle 1): correct answer is Yes")'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'New testnet (Ropsten) genesis file is now bundled with augur.js.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed proportion-correct display on closed-market detail page and My Reports page.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed market result outcome name lookup for closed markets.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'The augur.js penaltyCatchUp sequence now calls closeMarket for all markets associated with the penalized event (instead of just extra markets beyond the first).  This may be a temporary fix, depending on how penalizeWrong on-contract method is changed.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 26, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed new-branch first-reporting-cycle edge case on collectFees contract: collectFees method now always returns a value.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Renewed augur.net wildcard SSL certificate (for eth2/3/9000 servers).'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed trade page warning about minLimitPrice/maxLimitPrice types.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed the block number restriction on best bid/ask order tracking on trades contract.  Best bid/ask now represent the best prices in any block, for a given market and outcome.  (The block number restriction is no longer necessary since the crossed-orders check simply returns an error for the later-arriving order, which is not placed on the book.)'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 25, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Event IDs retrieved during composite lookups (getMarketInfo, batchGetMarketInfo, and/or getMarketsInfo) are now uniformly formatted.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added market/event ID parser method to the static API data of several augur.js wrappers.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Combined first and second reporting test sequences into one method.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Default HTTP and websocket hosted node URLs are now attached to the ethrpc (augur.rpc) object / editable by the consumer.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 24, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Restructured augur.js tests: moved unit tests and integration tests to separate folders.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Updated UUID versions and package name in keythereum and augur.js.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Updated middleware Travis CI builds to only run on updates to the master branch.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Various fixes to augur UI unit tests.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Merged Sprinkle\'s mega-PRs!  (These include fixes/improvements made over the past week.)'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 23, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added the ability to auto-populate a trade ticket by selecting any order present in either the outcomes list or order book.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Expanded test coverage of the Augur API buy, sell, and shortAsk trade methods.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 22, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Visual indication of \'own\' orders within a market outcome\'s order book.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improved min/max bound handling for both shares and limit price when creating a trade order.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Auto highlight behavior change to order book on market view.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improvements to the scalar share denomination label handling.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'General improvements to Augur.js trade unit tests.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improved test coverage of Augur.js \'buy\' method.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added test coverage for the Augur.js \'sendReputation\' method.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 21, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Expanded and refined test coverage of the place trade action.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Updated and added additional test coverage related to the market data and outcome trade components.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Continued styling improvements to the market view.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Bug fix related to the counts presented in both the header and footer navigational items.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improved state handling surrounding the outcome trade side selection.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Safari and Mobile Safari specific UI fixes.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Expanded and added additional selector shape coverage for market data and outcome trade selectors respectively.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 18, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'General responsive improvments including:',
-					_react2.default.createElement(
-						'ul',
-						null,
-						_react2.default.createElement(
-							'li',
-							null,
-							'Improvements to market view components to be fully responsive.'
-						),
-						_react2.default.createElement(
-							'li',
-							null,
-							'Improvements to the markets view compoenents\' existing responsiveness.'
-						),
-						_react2.default.createElement(
-							'li',
-							null,
-							'Various miscellaneous UI responsiveness adjustments + improvements.'
-						)
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improved UX of header and footer navigation.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Inclusion of additonal swipe event to handle show/hide of side bar.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'November 17, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'The trades contract now tracks the best bid and ask price within each block, and the buy/sell functions on the buy & sell shares contract verifies that incoming orders do not cross any previous orders in the same block.  (That is, it makes sure that bids do not exceed the best ask price and vice versa.)  If a make that would result in a crossed order is found, the later arriving order is not created, and an appropriate error message is relayed to the user.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Better handling of mobile touch events, especially pertaining to nav reveal/hide swipe events.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Additional responsive UI improvements.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Expanded and refined testing coverage of the short sell trading functionality.'
+					'Fixed bug causing cancel order transactions to appear twice in the transactions display.'
 				)
 			),
 			p.marketsLink && _react2.default.createElement(
@@ -39828,7 +39460,7 @@ var Transaction = function Transaction(p) {
 				_react2.default.createElement('br', { className: 'hide-in-tx-display' }),
 				_react2.default.createElement(_valueDenomination2.default, _extends({ className: 'avgPrice' }, p.avgPrice, { prefix: 'estimated total (including trading fees):', postfix: '/ share' })),
 				_react2.default.createElement('br', null),
-				buildDescription(p.data.description),
+				buildDescription(p.data.marketDescription),
 				_react2.default.createElement('br', { className: 'hide-in-trade-summary-display' }),
 				p.timestamp && _react2.default.createElement(_valueTimestamp2.default, _extends({ className: 'property-value' }, p.timestamp))
 			);
@@ -39977,7 +39609,7 @@ var Transaction = function Transaction(p) {
 						p.data.outcome.name && p.data.outcome.name.substring(0, 35) + (p.data.outcome.name.length > 35 && '...' || '')
 					),
 					_react2.default.createElement('br', null),
-					buildDescription(p.data.description),
+					buildDescription(p.data.marketDescription),
 					_react2.default.createElement('br', null),
 					p.timestamp && _react2.default.createElement(_valueTimestamp2.default, _extends({ className: 'property-value' }, p.timestamp))
 				);
@@ -39993,7 +39625,7 @@ var Transaction = function Transaction(p) {
 					p.type
 				),
 				_react2.default.createElement('br', null),
-				buildDescription(p.data.description),
+				buildDescription(p.data.description || p.data.marketDescription),
 				_react2.default.createElement('br', null),
 				p.timestamp && _react2.default.createElement(_valueTimestamp2.default, _extends({ className: 'property-value' }, p.timestamp))
 			);
