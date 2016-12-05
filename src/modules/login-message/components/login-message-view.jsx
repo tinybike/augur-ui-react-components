@@ -53,6 +53,36 @@ const LoginMessagePage = p => (
 				</li>
 			</ol>
 			<h2>Technical updates:</h2>
+			<h3>December 5, 2016</h3>
+			<ol>
+				<li>
+					Full contract re-upload on both network 9000 (private chain) and network 3 (public chain).
+				</li>
+				<li>
+					Manually editing transaction display messages now disables automatic (return value-based) messaging transaction relay updates.
+				</li>
+			</ol>
+			<h3>December 4, 2016</h3>
+			<ol>
+				<li>
+					Reputation faucet now correctly sets fees collected for the new reporter.
+				</li>
+				<li>
+					Fixed sender address references in on-contract payout functions.
+				</li>
+				<li>
+					Fixed condition under which Reporting catch-up function is called, instead of comparing event reports to the consensus (penalizeWrong).
+				</li>
+				<li>
+					The UI now uses the current block timestamp to set Reporting cycle position.
+				</li>
+				<li>
+					Removed duplicate address field from UI login account state.
+				</li>
+				<li>
+					Removed account trades data from localStorage.
+				</li>
+			</ol>
 			<h3>December 3, 2016</h3>
 			<ol>
 				<li>

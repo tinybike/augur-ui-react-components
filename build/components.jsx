@@ -30154,7 +30154,7 @@ var AccountPage = function (_Component) {
 										_react2.default.createElement(
 											'span',
 											null,
-											p.account.id && p.account.id.indexOf('0x') === 0 && p.account.id.replace('0x', '')
+											p.account.address && p.account.address.indexOf('0x') === 0 && p.account.address.replace('0x', '')
 										)
 									)
 								),
@@ -30678,7 +30678,7 @@ var AppComponent = function (_Component) {
 								'div',
 								{ className: (0, _classnames2.default)('sub-header', (!p.loginAccount || !p.loginAccount.address) && 'logged-out') },
 								s.isSideBarAllowed && !s.isSideBarCollapsed && _react2.default.createElement('div', { className: 'core-stats-bumper' }),
-								p.loginAccount && p.loginAccount.id && _react2.default.createElement(_coreStats2.default, { coreStats: p.coreStats })
+								p.loginAccount && p.loginAccount.address && _react2.default.createElement(_coreStats2.default, { coreStats: p.coreStats })
 							)
 						),
 						_react2.default.createElement(
@@ -30704,7 +30704,7 @@ var AppComponent = function (_Component) {
 									_react2.default.createElement(
 										'div',
 										{ className: (0, _classnames2.default)('sub-header', (!p.loginAccount || !p.loginAccount.address) && 'logged-out') },
-										p.loginAccount && p.loginAccount.id && _react2.default.createElement(_coreStats2.default, { coreStats: p.coreStats })
+										p.loginAccount && p.loginAccount.address && _react2.default.createElement(_coreStats2.default, { coreStats: p.coreStats })
 									),
 									_react2.default.createElement(_routes2.default, _extends({}, p, {
 										setSidebarAllowed: this.setSidebarAllowed
@@ -34659,6 +34659,64 @@ var LoginMessagePage = function LoginMessagePage(p) {
 			_react2.default.createElement(
 				'h3',
 				null,
+				'December 5, 2016'
+			),
+			_react2.default.createElement(
+				'ol',
+				null,
+				_react2.default.createElement(
+					'li',
+					null,
+					'Full contract re-upload on both network 9000 (private chain) and network 3 (public chain).'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Manually editing transaction display messages now disables automatic (return value-based) messaging transaction relay updates.'
+				)
+			),
+			_react2.default.createElement(
+				'h3',
+				null,
+				'December 4, 2016'
+			),
+			_react2.default.createElement(
+				'ol',
+				null,
+				_react2.default.createElement(
+					'li',
+					null,
+					'Reputation faucet now correctly sets fees collected for the new reporter.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed sender address references in on-contract payout functions.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed condition under which Reporting catch-up function is called, instead of comparing event reports to the consensus (penalizeWrong).'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'The UI now uses the current block timestamp to set Reporting cycle position.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Removed duplicate address field from UI login account state.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Removed account trades data from localStorage.'
+				)
+			),
+			_react2.default.createElement(
+				'h3',
+				null,
 				'December 3, 2016'
 			),
 			_react2.default.createElement(
@@ -35090,7 +35148,7 @@ var MarketBasics = function MarketBasics(p) {
 			_react2.default.createElement(
 				'div',
 				{ className: 'market-basics-header-group-2' },
-				p.loginAccount && p.loginAccount.id && p.onClickToggleFavorite && _react2.default.createElement(
+				p.loginAccount && p.loginAccount.address && p.onClickToggleFavorite && _react2.default.createElement(
 					'button',
 					{
 						className: (0, _classnames2.default)('button unstyled favorite-button', { on: p.isFavorite }),
@@ -36846,11 +36904,11 @@ var MarketsHeaders = function MarketsHeaders(p) {
 			_react2.default.createElement(
 				'div',
 				{ className: 'view-header-group' },
-				p.loginAccount && p.loginAccount.id && _react2.default.createElement(
+				p.loginAccount && p.loginAccount.address && _react2.default.createElement(
 					_link2.default,
 					_extends({
 						className: 'button imperative navigational',
-						disabled: !p.loginAccount.id
+						disabled: !p.loginAccount.address
 					}, p.createMarketLink),
 					'+ Create New Market'
 				)

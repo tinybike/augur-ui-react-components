@@ -5,9 +5,6 @@ export default function(loginAccount) {
 	assert.isDefined(loginAccount, `loginAccount isn't defined`);
 	assert.isObject(loginAccount, `loginAccount isn't an object`);
 
-	assert.isDefined(loginAccount.id, `loginAccount.id isn't defined`);
-	assert.isString(loginAccount.id, `loginAccount.id isn't a string`);
-
 	assert.isDefined(loginAccount.name, `loginAccount.name isn't defined`);
 	assert.isString(loginAccount.name, `loginAccount.name isn't a string`);
 
