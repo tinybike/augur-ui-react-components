@@ -39265,6 +39265,7 @@ var ReportForm = function (_Component) {
 
 			var p = this.props;
 			var s = this.state;
+			var indeterminateValue = p.type === _marketTypes.BINARY ? '1.5' : '0.5';
 
 			var outcomeOptions = void 0;
 			if (p.type === _marketTypes.SCALAR) {
@@ -39355,7 +39356,10 @@ var ReportForm = function (_Component) {
 						text: 'Yes, this question is indeterminate',
 						isChecked: !!s.isIndeterminate,
 						onClick: !s.isReported && function () {
-							return _this2.setState({ isIndeterminate: !s.isIndeterminate });
+							return _this2.setState({
+								isIndeterminate: !s.isIndeterminate,
+								reportedOutcomeID: indeterminateValue
+							});
 						} || null
 					})
 				),
