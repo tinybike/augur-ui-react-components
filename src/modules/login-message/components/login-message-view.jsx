@@ -53,8 +53,53 @@ const LoginMessagePage = p => (
 				</li>
 			</ol>
 			<h2>Technical updates:</h2>
+			<h3>December 6, 2016</h3>
+			<ol>
+				<li>
+					Use last block gasLimit to set raw transaction gasLimit, if available.
+				</li>
+				<li>
+					Removed conditional call to collectFees contract from submitReport: this call was not working correctly and (if fixed) would bring additional complications with it, so decoupling these functions seems like the better solution.
+				</li>
+				<li>
+					Fixed first-reporting-cycle collectFees bug.
+				</li>
+				<li>
+					Reversed order of UI calls to collectFees and revealReports in checkPeriod; collectFees is now called first.
+				</li>
+				<li>
+					Added a filter that listens for market closings, and calls claimProceeds when events happen.
+				</li>
+				<li>
+					Fixed the outcome name lookup of binary markets for reveal-reports.
+				</li>
+			</ol>
 			<h3>December 5, 2016</h3>
 			<ol>
+				<li>
+					Added an optional timestamp argument to getCurrentPeriod and getCurrentPeriodProgress.
+				</li>
+				<li>
+					Added explicit penalizeWrong and closeMarket wrappers to augur.js.
+				</li>
+				<li>
+					Fixed penalizationCatchup call condition and added onSent/onSuccess callbacks to augur.js combined reporting functions.
+				</li>
+				<li>
+					Moved payout augur.js functions to separate module.
+				</li>
+				<li>
+					Fixed sender reference errors in payout functions.
+				</li>
+				<li>
+					Added manual message updates to checkPeriod and claimProceeds functions.
+				</li>
+				<li>
+					Removed account trades from localStorage.
+				</li>
+				<li>
+					Removed duplicate address field (id) from loginAccount.
+				</li>
 				<li>
 					Full contract re-upload on both network 9000 (private chain) and network 3 (public chain).
 				</li>

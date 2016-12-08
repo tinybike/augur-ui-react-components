@@ -34659,11 +34659,90 @@ var LoginMessagePage = function LoginMessagePage(p) {
 			_react2.default.createElement(
 				'h3',
 				null,
+				'December 6, 2016'
+			),
+			_react2.default.createElement(
+				'ol',
+				null,
+				_react2.default.createElement(
+					'li',
+					null,
+					'Use last block gasLimit to set raw transaction gasLimit, if available.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Removed conditional call to collectFees contract from submitReport: this call was not working correctly and (if fixed) would bring additional complications with it, so decoupling these functions seems like the better solution.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed first-reporting-cycle collectFees bug.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Reversed order of UI calls to collectFees and revealReports in checkPeriod; collectFees is now called first.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Added a filter that listens for market closings, and calls claimProceeds when events happen.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed the outcome name lookup of binary markets for reveal-reports.'
+				)
+			),
+			_react2.default.createElement(
+				'h3',
+				null,
 				'December 5, 2016'
 			),
 			_react2.default.createElement(
 				'ol',
 				null,
+				_react2.default.createElement(
+					'li',
+					null,
+					'Added an optional timestamp argument to getCurrentPeriod and getCurrentPeriodProgress.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Added explicit penalizeWrong and closeMarket wrappers to augur.js.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed penalizationCatchup call condition and added onSent/onSuccess callbacks to augur.js combined reporting functions.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Moved payout augur.js functions to separate module.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Fixed sender reference errors in payout functions.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Added manual message updates to checkPeriod and claimProceeds functions.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Removed account trades from localStorage.'
+				),
+				_react2.default.createElement(
+					'li',
+					null,
+					'Removed duplicate address field (id) from loginAccount.'
+				),
 				_react2.default.createElement(
 					'li',
 					null,
