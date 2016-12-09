@@ -53,139 +53,25 @@ const LoginMessagePage = p => (
 				</li>
 			</ol>
 			<h2>Technical updates:</h2>
-			<h3>December 6, 2016</h3>
+			<h3>December 9, 2016</h3>
 			<ol>
 				<li>
-					Use last block gasLimit to set raw transaction gasLimit, if available.
+					Removed redundant (and broken) getMarketTrades method from augur.js.  Please use getMarketPriceHistory instead, a function that is not broken and retrieves the same information.
 				</li>
 				<li>
-					Removed conditional call to collectFees contract from submitReport: this call was not working correctly and (if fixed) would bring additional complications with it, so decoupling these functions seems like the better solution.
-				</li>
-				<li>
-					Fixed first-reporting-cycle collectFees bug.
-				</li>
-				<li>
-					Reversed order of UI calls to collectFees and revealReports in checkPeriod; collectFees is now called first.
-				</li>
-				<li>
-					Added a filter that listens for market closings, and calls claimProceeds when events happen.
-				</li>
-				<li>
-					Fixed the outcome name lookup of binary markets for reveal-reports.
+					All fixed-point fields in the log_fill_tx event logs are now auto-converted to regular (stringified) numbers.  Note that log_fill_tx and log_add_tx are the only two filters where fixed-point conversions is automatically performed.
 				</li>
 			</ol>
-			<h3>December 5, 2016</h3>
+			<h3>December 8, 2016</h3>
 			<ol>
 				<li>
-					Added an optional timestamp argument to getCurrentPeriod and getCurrentPeriodProgress.
+					Indeterminate reports now load and reveal correctly for all three market types.
 				</li>
 				<li>
-					Added explicit penalizeWrong and closeMarket wrappers to augur.js.
+					Fixed outcome name displays in reveal report transactions.
 				</li>
 				<li>
-					Fixed penalizationCatchup call condition and added onSent/onSuccess callbacks to augur.js combined reporting functions.
-				</li>
-				<li>
-					Moved payout augur.js functions to separate module.
-				</li>
-				<li>
-					Fixed sender reference errors in payout functions.
-				</li>
-				<li>
-					Added manual message updates to checkPeriod and claimProceeds functions.
-				</li>
-				<li>
-					Removed account trades from localStorage.
-				</li>
-				<li>
-					Removed duplicate address field (id) from loginAccount.
-				</li>
-				<li>
-					Full contract re-upload on both network 9000 (private chain) and network 3 (public chain).
-				</li>
-				<li>
-					Manually editing transaction display messages now disables automatic (return value-based) messaging transaction relay updates.
-				</li>
-			</ol>
-			<h3>December 4, 2016</h3>
-			<ol>
-				<li>
-					Reputation faucet now correctly sets fees collected for the new reporter.
-				</li>
-				<li>
-					Fixed sender address references in on-contract payout functions.
-				</li>
-				<li>
-					Fixed condition under which Reporting catch-up function is called, instead of comparing event reports to the consensus (penalizeWrong).
-				</li>
-				<li>
-					The UI now uses the current block timestamp to set Reporting cycle position.
-				</li>
-				<li>
-					Removed duplicate address field from UI login account state.
-				</li>
-				<li>
-					Removed account trades data from localStorage.
-				</li>
-			</ol>
-			<h3>December 3, 2016</h3>
-			<ol>
-				<li>
-					Fixed a bug causing report period to be unassigned during commit report.
-				</li>
-				<li>
-					Fixed filters (blockchain listeners) on non-root branches.
-				</li>
-				<li>
-					Cash balances are now correctly displayed and updated on non-root branches.
-				</li>
-				<li>
-					Last outcome price selector now directly uses the outcomes data state instead of the markets selector.
-				</li>
-				<li>
-					Added contract method return value to transaction relay (auto-generated) display panels.
-				</li>
-			</ol>
-			<h3>December 2, 2016</h3>
-			<ol>
-				<li>
-					Fixed reporting edge case where all markets in a reporting cycle have 0 volume.
-				</li>
-				<li>
-					Assign reputation faucet starting report period depending on whether user accesses faucet during the first or second half of the current reporting cycle.
-				</li>
-				<li>
-					Negative prices are now handled correctly during both trade and short sell.
-				</li>
-				<li>
-					Updated geth.js start/stop package and tests.
-				</li>
-				<li>
-					Added each-market-type order maker convenience method to augur.js reputation testing tools.
-				</li>
-				<li>
-					Improved display of long messages in transaction display.
-				</li>
-			</ol>
-			<h3>December 1, 2016</h3>
-			<ol>
-				<li>
-					Added more thorough unit tests for the trading UI.
-				</li>
-				<li>
-					Uploaded Augur contracts to the new Ethereum public test network (&quot;Ropsten&quot;).  Also moved the Augur faucet and public geth node (eth3.augur.net) to Ropsten.  app.augur.net and augur-dev.firebaseapp.com are now configured to use the new Ropsten contracts.  local.augur.net will also use Ropsten if you are not running a local Ethereum node.  For users that prefer to remain on our private chain (network 9000), we are planning to maintain private.augur.net for the remainder of the beta test.  Users of private.augur.net should be aware that the network 9000 blockchain is reset on a semi-regular basis, often without any public announcement/warning, and when this happens, all your private chain Ether, Reputation, and trading shares are also reset.
-				</li>
-				<li>
-					Fixed market description display and links back to the trade page on the transactions page.
-				</li>
-				<li>
-					Fixed bug causing cancel order transactions to appear twice in the transactions display.
-				</li>
-				<li>
-					Significantly extended timeout in augur.js requests module to avoid ETIMEDOUT errors when attempting to request ETH from the faucet.  The timeout is now set to a large value (999999) which should not be reached unless the user is experiencing a connection problem.
-				</li>
-				<li>
-					Significantly extended nginx timeouts for eth1.augur.net.  It turns out that the CORS errors occasionally generated by the faucet are not true CORS errors; it is actually an nginx timeout which is (mis-)identified as a CORS error.  The timeout is now set to a large value (999999) which should not be reached unless the user is experiencing a connection problem.
+					The no-report callback argument for getReport wrapper now uses the same object structure as the unfixReport function.
 				</li>
 			</ol>
 			{p.marketsLink &&

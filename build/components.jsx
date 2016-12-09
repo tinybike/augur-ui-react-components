@@ -34659,7 +34659,7 @@ var LoginMessagePage = function LoginMessagePage(p) {
 			_react2.default.createElement(
 				'h3',
 				null,
-				'December 6, 2016'
+				'December 9, 2016'
 			),
 			_react2.default.createElement(
 				'ol',
@@ -34667,38 +34667,18 @@ var LoginMessagePage = function LoginMessagePage(p) {
 				_react2.default.createElement(
 					'li',
 					null,
-					'Use last block gasLimit to set raw transaction gasLimit, if available.'
+					'Removed redundant (and broken) getMarketTrades method from augur.js.  Please use getMarketPriceHistory instead, a function that is not broken and retrieves the same information.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'Removed conditional call to collectFees contract from submitReport: this call was not working correctly and (if fixed) would bring additional complications with it, so decoupling these functions seems like the better solution.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed first-reporting-cycle collectFees bug.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Reversed order of UI calls to collectFees and revealReports in checkPeriod; collectFees is now called first.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added a filter that listens for market closings, and calls claimProceeds when events happen.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed the outcome name lookup of binary markets for reveal-reports.'
+					'All fixed-point fields in the log_fill_tx event logs are now auto-converted to regular (stringified) numbers.  Note that log_fill_tx and log_add_tx are the only two filters where fixed-point conversions is automatically performed.'
 				)
 			),
 			_react2.default.createElement(
 				'h3',
 				null,
-				'December 5, 2016'
+				'December 8, 2016'
 			),
 			_react2.default.createElement(
 				'ol',
@@ -34706,203 +34686,17 @@ var LoginMessagePage = function LoginMessagePage(p) {
 				_react2.default.createElement(
 					'li',
 					null,
-					'Added an optional timestamp argument to getCurrentPeriod and getCurrentPeriodProgress.'
+					'Indeterminate reports now load and reveal correctly for all three market types.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'Added explicit penalizeWrong and closeMarket wrappers to augur.js.'
+					'Fixed outcome name displays in reveal report transactions.'
 				),
 				_react2.default.createElement(
 					'li',
 					null,
-					'Fixed penalizationCatchup call condition and added onSent/onSuccess callbacks to augur.js combined reporting functions.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Moved payout augur.js functions to separate module.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed sender reference errors in payout functions.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added manual message updates to checkPeriod and claimProceeds functions.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed account trades from localStorage.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed duplicate address field (id) from loginAccount.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Full contract re-upload on both network 9000 (private chain) and network 3 (public chain).'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Manually editing transaction display messages now disables automatic (return value-based) messaging transaction relay updates.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'December 4, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Reputation faucet now correctly sets fees collected for the new reporter.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed sender address references in on-contract payout functions.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed condition under which Reporting catch-up function is called, instead of comparing event reports to the consensus (penalizeWrong).'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'The UI now uses the current block timestamp to set Reporting cycle position.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed duplicate address field from UI login account state.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Removed account trades data from localStorage.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'December 3, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed a bug causing report period to be unassigned during commit report.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed filters (blockchain listeners) on non-root branches.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Cash balances are now correctly displayed and updated on non-root branches.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Last outcome price selector now directly uses the outcomes data state instead of the markets selector.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added contract method return value to transaction relay (auto-generated) display panels.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'December 2, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed reporting edge case where all markets in a reporting cycle have 0 volume.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Assign reputation faucet starting report period depending on whether user accesses faucet during the first or second half of the current reporting cycle.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Negative prices are now handled correctly during both trade and short sell.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Updated geth.js start/stop package and tests.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added each-market-type order maker convenience method to augur.js reputation testing tools.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Improved display of long messages in transaction display.'
-				)
-			),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'December 1, 2016'
-			),
-			_react2.default.createElement(
-				'ol',
-				null,
-				_react2.default.createElement(
-					'li',
-					null,
-					'Added more thorough unit tests for the trading UI.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Uploaded Augur contracts to the new Ethereum public test network ("Ropsten").  Also moved the Augur faucet and public geth node (eth3.augur.net) to Ropsten.  app.augur.net and augur-dev.firebaseapp.com are now configured to use the new Ropsten contracts.  local.augur.net will also use Ropsten if you are not running a local Ethereum node.  For users that prefer to remain on our private chain (network 9000), we are planning to maintain private.augur.net for the remainder of the beta test.  Users of private.augur.net should be aware that the network 9000 blockchain is reset on a semi-regular basis, often without any public announcement/warning, and when this happens, all your private chain Ether, Reputation, and trading shares are also reset.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed market description display and links back to the trade page on the transactions page.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Fixed bug causing cancel order transactions to appear twice in the transactions display.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Significantly extended timeout in augur.js requests module to avoid ETIMEDOUT errors when attempting to request ETH from the faucet.  The timeout is now set to a large value (999999) which should not be reached unless the user is experiencing a connection problem.'
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					'Significantly extended nginx timeouts for eth1.augur.net.  It turns out that the CORS errors occasionally generated by the faucet are not true CORS errors; it is actually an nginx timeout which is (mis-)identified as a CORS error.  The timeout is now set to a large value (999999) which should not be reached unless the user is experiencing a connection problem.'
+					'The no-report callback argument for getReport wrapper now uses the same object structure as the unfixReport function.'
 				)
 			),
 			p.marketsLink && _react2.default.createElement(
